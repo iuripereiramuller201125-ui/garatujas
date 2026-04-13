@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hack css</title>
+  <style>
+    #toggle {
+      display:none;
+    }
+
+    #toggle:checked ~ aside {
+      transform: translateX(0%);
+    }
+    
+    aside {
+      background-color: rgb(85, 86, 117);
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      transform: translateX(-100%);
+      transition: .5s;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <form method="get">
+    <div>
+      <label for="inp-nome">nome</label>
+      <input type="text" name="nome" id="inp-nome">
+    </div>
+    <div>
+      <label for="">usuário</label>
+      <input type="text" name="usuario">
+    </div>
+    <div>
+      <label for="">senha</label>
+      <input type="password" name="senha">
+    </div>
+    <div>
+      <label for="">confirmar senha</label>
+      <input type="password" name="confirmar-senha">
+    </div>
+
+    <select>
+      <option>número 1</option>
+      <option>número 2</option>
+      <option>número 3</option>
+    
+    <select name="" id=""></select><input type="checkbox" id="toggle">
+  <span>futebol</span>
+  <aside>
+
+    <label for="toggle">basquete</label>
+  </aside>
+  <p>lorem</p>
+  <p>lorem</p>
+  <p>lorem</p>
+  <p>lorem</p>
+  <p>lorem</p>
+  <label for="toggle">vôlei</label>
+  <button>enviar</button>
+  <form>
+</body>
+
+</html>
