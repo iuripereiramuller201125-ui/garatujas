@@ -1,69 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-  <title>hack css</title>
-  <style>
-    #toggle {
-      display:none;
-    }
+<meta charset="UTF-8">
+<title>hack css</title>
 
-    #toggle:checked ~ aside {
-      transform: translateX(0%);
-    }
-    
-    aside {
-      background-color: rgb(85, 86, 117);
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 200px;
-      height: 100vh;
-      transform: translateX(-100%);
-      transition: .5s;
-    }
-  </style>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1f26, #2a2c36);
+    color: #e4e4e4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  #toggle:checked ~ aside {
+    transform: translateX(0%);
+  }
+
+  aside {
+    background-color: #20222b;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: .5s;
+    color: white;
+    padding: 15px;
+  }
+
+  /* FORMULÁRIO */
+  form {
+    width: 260px;
+    padding: 20px;
+    background: #2f313d;
+    border-radius: 12px;
+    border: 1px solid #444;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  form div {
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    background: #3a3d4a;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #aaa;
+  }
+
+  input, button {
+    width: 100%;
+    padding: 7px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #2a2c36;
+    color: #fff;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+
+  input:focus {
+    outline: none;
+    border: 1px solid #8a8dff;
+    box-shadow: 0 0 8px rgba(138,141,255,0.5);
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .inline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  button {
+    background-color: #8a8dff;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* -------- ANIMAÇÕES ESPORTES -------- */
+
+  .inline span {
+    display: inline-block;
+  }
+
+  /* ⚽ futebol */
+  .futebol input:checked + span {
+    animation: chute 0.4s ease;
+  }
+
+  @keyframes chute {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* 🏀 basquete */
+  .basquete input:checked + span {
+    animation: quicar 0.5s ease;
+  }
+
+  @keyframes quicar {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+    60% { transform: translateY(0); }
+    80% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* 🏐 vôlei */
+  .volei input:checked + span {
+    animation: pulo 0.4s ease;
+  }
+
+  @keyframes pulo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* -------- MODAL -------- */
+
+  #modal-termos {
+    display: none;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+  }
+
+  .modal-box {
+    background: #2f313d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  #modal-termos:checked ~ .overlay {
+    display: flex;
+  }
+
+  .btn-termos {
+    font-size: 12px;
+    color: #8a8dff;
+    cursor: pointer;
+  }
+
+  .fechar {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    background: #8a8dff;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+</style>
 </head>
 
 <body>
-    
-  <form method="get">
-    <div>
-      <label for="inp-nome">nome</label>
-      <input type="text" name="nome" id="inp-nome">
-    </div>
-    <div>
-      <label for="">usuário</label>
-      <input type="text" name="usuario">
-    </div>
-    <div>
-      <label for="">senha</label>
-      <input type="password" name="senha">
-    </div>
-    <div>
-      <label for="">confirmar senha</label>
-      <input type="password" name="confirmar-senha">
-    </div>
 
-    <select>
-      <option>número 1</option>
-      <option>número 2</option>
-      <option>número 3</option>
-    
-    <select name="" id=""></select><input type="checkbox" id="toggle">
-  <span>futebol</span>
-  <aside>
+<input type="checkbox" id="toggle">
 
-    <label for="toggle">basquete</label>
-  </aside>
-  <p>lorem</p>
-  <p>lorem</p>
-  <p>lorem</p>
-  <p>lorem</p>
-  <p>lorem</p>
-  <label for="toggle">vôlei</label>
-  <button>enviar</button>
-  <form>
+<aside>
+  <label for="toggle">basquete</label>
+</aside>
+
+<input type="checkbox" id="modal-termos">
+
+<form method="get">
+
+  <div>
+    <label for="usuario">usuário</label>
+    <input type="text" id="usuario" required>
+  </div>
+
+  <div>
+    <label for="senha">senha</label>
+    <input type="password" id="senha" required>
+  </div>
+
+  <div>
+    <label for="confirmar">confirmar senha</label>
+    <input type="password" id="confirmar" required>
+  </div>
+
+  <div>
+    <p>interesses</p>
+
+    <label class="inline futebol">
+      <input type="checkbox">
+      <span>⚽ futebol</span>
+    </label>
+
+    <label class="inline basquete">
+      <input type="checkbox">
+      <span>🏀 basquete</span>
+    </label>
+
+    <label class="inline volei">
+      <input type="checkbox">
+      <span>🏐 vôlei</span>
+    </label>
+
+  </div>
+
+  <div>
+    <label class="inline">
+      <input type="checkbox" required>
+    Aceito os termos
+    </label>
+
+    <label for="modal-termos" class="btn-termos">ver termos</label>
+  </div>
+
+  <button type="submit">enviar</button>
+
+</form>
+
+<div class="overlay">
+  <div class="modal-box">
+    <h3>Termos</h3>
+    <p>
+      Li os termos (com certeza) e concordo em entregar todos os meus dados.
+    </p>
+
+    <label for="modal-termos" class="fechar">fechar</label>
+  </div>
+</div>
+
 </body>
-
 </html>
