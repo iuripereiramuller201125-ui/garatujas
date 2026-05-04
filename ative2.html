@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
+
 <meta charset="UTF-8">
 <title>hack css</title>
 
+<head></head>
 <style>
   body {
     margin: 0;
@@ -22,7 +23,7 @@
     display: none;
   }
 
-  #toggle:checked ~ aside {
+  #toggle:checked~aside {
     transform: translateX(0%);
   }
 
@@ -39,14 +40,14 @@
     padding: 15px;
   }
 
-  
+
   form {
     width: 260px;
     padding: 20px;
     background: #2f313d;
     border-radius: 12px;
     border: 1px solid #444;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
 
   form div {
@@ -63,7 +64,8 @@
     color: #aaa;
   }
 
-  input, button {
+  input,
+  button {
     width: 100%;
     padding: 7px;
     border-radius: 6px;
@@ -77,7 +79,7 @@
   input:focus {
     outline: none;
     border: 1px solid #8a8dff;
-    box-shadow: 0 0 8px rgba(138,141,255,0.5);
+    box-shadow: 0 0 8px rgba(138, 141, 255, 0.5);
   }
 
   input[type="checkbox"] {
@@ -93,50 +95,80 @@
   }
 
   button {
-    background-color: #8a8dff;
+    background-color: #787cfc;
     border: none;
     cursor: pointer;
   }
 
-  
+
 
   .inline span {
     display: inline-block;
   }
 
-  
-  .futebol input:checked + span {
+
+  .futebol input:checked+span {
     animation: chute 0.4s ease;
   }
 
   @keyframes chute {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(8px); }
-    100% { transform: translateX(0); }
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(8px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
   }
 
-  
-  .basquete input:checked + span {
+
+  .basquete input:checked+span {
     animation: quicar 0.5s ease;
   }
 
   @keyframes quicar {
-    0% { transform: translateY(0); }
-    30% { transform: translateY(-10px); }
-    60% { transform: translateY(0); }
-    80% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(0);
+    }
+
+    30% {
+      transform: translateY(-10px);
+    }
+
+    60% {
+      transform: translateY(0);
+    }
+
+    80% {
+      transform: translateY(-5px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
 
-  
-  .volei input:checked + span {
+
+  .volei input:checked+span {
     animation: pulo 0.4s ease;
   }
 
   @keyframes pulo {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.15);
+    }
+
+    100% {
+      transform: scale(1);
+    }
   }
 
 
@@ -148,7 +180,7 @@
   .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     display: none;
 
     justify-content: center;
@@ -166,13 +198,13 @@
     overflow-y: auto;
   }
 
-  #modal-termos:checked ~ .overlay {
+  #modal-termos:checked~.overlay {
     display: flex;
   }
 
   .btn-termos {
     font-size: 12px;
-    color: #8a8dff;
+    color: #4b4eff;
     cursor: pointer;
   }
 
@@ -180,85 +212,85 @@
     display: block;
     margin-top: 10px;
     text-align: center;
-    background: #1b1f96;
+    background: #4146e0;
     padding: 6px;
     border-radius: 6px;
     cursor: pointer;
   }
-
 </style>
 </head>
 
 <body>
 
-<input type="checkbox" id="toggle">
+  <input type="checkbox" id="toggle">
 
-<aside>
-  <label for="toggle">basquete</label>
-</aside>
+  <aside>
+    <label for="toggle">basquete</label>
+  </aside>
 
-<input type="checkbox" id="modal-termos">
+  <input type="checkbox" id="modal-termos">
 
-<form method="get">
+  <form method="get">
 
-  <div>
-    <label for="usuario">usuário</label>
-    <input type="text" id="usuario" required>
+    <div>
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" required>
+    </div>
+
+    <div>
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" required>
+    </div>
+
+    <div>
+      <label for="confirmar">Confirmar senha</label>
+      <input type="password" id="confirmar" required>
+    </div>
+
+    <div>
+      <p>interesses</p>
+
+      <label class="inline futebol">
+        <input type="checkbox">
+        <span> futebol</span>
+      </label>
+
+      <label class="inline basquete">
+        <input type="checkbox">
+        <span>basquete</span>
+      </label>
+
+      <label class="inline volei">
+        <input type="checkbox">
+        <span>vôlei</span>
+      </label>
+
+    </div>
+
+    <div>
+      <label class="inline">
+        <input type="checkbox" required>
+        Aceito os termos
+      </label>
+
+      <label for="modal-termos" class="btn-termos">Ver termos</label>
+    </div>
+
+    <button type="submit">enviar</button>
+
+  </form>
+
+  <div class="overlay">
+    <div class="modal-box">
+      <h3>Termos</h3>
+      <p>
+        Li os termos (com certeza) e concordo em entregar todos os meus dados.
+      </p>
+
+      <label for="modal-termos" class="fechar">fechar</label>
+    </div>
   </div>
-
-  <div>
-    <label for="senha">senha</label>
-    <input type="password" id="senha" required>
-  </div>
-
-  <div>
-    <label for="confirmar">confirmar senha</label>
-    <input type="password" id="confirmar" required>
-  </div>
-
-  <div>
-    <p>interesses</p>
-
-    <label class="inline futebol">
-      <input type="checkbox">
-      <span>⚽ futebol</span>
-    </label>
-
-    <label class="inline basquete">
-      <input type="checkbox">
-      <span>🏀 basquete</span>
-    </label>
-
-    <label class="inline volei">
-      <input type="checkbox">
-      <span>🏐 vôlei</span>
-    </label>
-
-  </div>
-
-  <div>
-    <label class="inline">
-      <input type="checkbox" required>
-    Aceito os termos
-    </label>
-
-    <label for="modal-termos" class="btn-termos">ver termos</label>
-  </div>
-
-  <button type="submit">enviar</button>
-
-</form>
-
-<div class="overlay">
-  <div class="modal-box">
-    <h3>Termos</h3>
-    <p>
-      Li os termos (com certeza) e concordo em entregar todos os meus dados.
-    </p>
-
-    <label for="modal-termos" class="fechar">fechar</label>
-  </div>
-</div>
 
 </body>
+
 </html>
