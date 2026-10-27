@@ -1,0 +1,27 @@
+.path {
+    width: 1000px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    box-sizing:border-box;
+}
+
+.bullet {
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+    position: relative;
+    left: 0;
+    transition: 1s;
+}
+
+.bullet.move-right {
+    left: 100%;
+    transform: translateX(-100%);
+    border: 5px solid red;
+}
